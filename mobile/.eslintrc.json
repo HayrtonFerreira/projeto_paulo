@@ -1,0 +1,32 @@
+{
+    "env": {
+        "es2021": true,
+        "node": true
+    },
+    "extends": [
+        "standard-with-typescript",
+        "plugin:react/recommended",
+        "prettier"
+
+    ],
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "react-native"
+    ],
+    
+    "rules": {
+        //permite escreve aquivos jsx
+        "react/jsx-filename-extension":[1,{"extensions":[".js",".jsx"]}],
+        "@typescript-eslint/explicit-function-return-type": [
+            "error",
+            {
+              "allowedNames": ["ignoredFunctionName", "ignoredMethodName"]
+            }
+          ],
+        "files": ["*.ts", "*.mts", "*.cts", "*.tsx"]
+    }
+}

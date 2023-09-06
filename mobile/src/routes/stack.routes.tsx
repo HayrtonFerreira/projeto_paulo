@@ -8,6 +8,7 @@ import { PerfilTeacher } from '../screens/PerfilTeacher';
 import StarTeacher from '../screens/StarTeacher';
 import { Theme } from '../../Thema';
 import { StarRating } from '../screens/StarRating';
+import { Schedule } from '../screens/Schedule';
 
 
 
@@ -19,6 +20,11 @@ const{Navigator,Screen} =  createStackNavigator();
 export default function Stack() {
     return(
         <Navigator>
+           <Screen
+          name='Schedule'
+          component={Schedule}
+         
+          />
            <Screen
           name='Options'
           component={Options}

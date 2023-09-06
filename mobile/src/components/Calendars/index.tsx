@@ -1,101 +1,69 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, Button, Platform, Modal, TextInput, FlatList } from 'react-native';
-import * as Calendar from 'expo-calendar';
-import { format } from 'date-fns';
+import React, { Component } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import CalendarPicker, { DateChangedCallback } from 'react-native-calendar-picker';
+import { Theme } from '../../../Thema';
 
-export default function Calendars() {
-  const [calendarPermission, setCalendarPermission] = useState<string | null>(null);
-  const [selectedDate, setSelectedDate] = useState<Date | null>(new Date());
-  const [eventTitle, setEventTitle] = useState('');
-  const [events, setEvents] = useState<any[]>([]);
-  const [isModalVisible, setModalVisible] = useState(false);
-
-  useEffect(() => {
-    (async () => {
-      const { status } = await Calendar.requestCalendarPermissionsAsync();
-      setCalendarPermission(status);
-    })();
-  }, []);
-
-  useEffect(() => {
-    if (calendarPermission === 'granted' && selectedDate) {
-      loadEvents();
-    }
-  }, [selectedDate]);
-
-  const loadEvents = async () => {
-    const startDate = new Date(selectedDate!);
-    startDate.setHours(0, 0, 0, 0);
-    const endDate = new Date(selectedDate!);
-    endDate.setHours(23, 59, 59, 999);
-
-    const defaultCalendar = await getDefaultCalendar();
-    const events = await Calendar.getEventsAsync([defaultCalendar!.id], startDate, endDate);
-
-    setEvents(events);
-  };
-
-  const handleAddEvent = async () => {
-    if (calendarPermission === 'granted' && selectedDate && eventTitle) {
-      const defaultCalendar = await getDefaultCalendar();
-      const startDate = new Date(selectedDate!);
-      const endDate = new Date(selectedDate!);
-      endDate.setHours(endDate.getHours() + 1);
-
-      const eventDetails = {
-        title: eventTitle,
-        startDate,
-        endDate,
-        timeZone: 'UTC',
-      };
-
-      await Calendar.createEventAsync(defaultCalendar!.id, eventDetails);
-      setEventTitle('');
-      loadEvents();
-      setModalVisible(false);
-    }
-  };
-
-  const getDefaultCalendar = async () => {
-    const calendars = await Calendar.getCalendarsAsync();
-    const defaultCalendar = calendars.find((cal) => cal.source.name === 'Default');
-    return defaultCalendar;
-  };
-
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Selecione uma data:</Text>
-      <Button
-        title="Selecionar Data"
-        onPress={() => {
-          setSelectedDate(new Date());
-        }}
-      />
-      <Text>Data Selecionada: {selectedDate ? format(selectedDate, 'dd/MM/yyyy') : 'Nenhuma data selecionada'}</Text>
-
-      <Button title="Adicionar Evento" onPress={() => setModalVisible(true)} />
-      
-      <Modal visible={isModalVisible} animationType="slide">
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-          <Text>Adicionar Evento</Text>
-          <TextInput
-            placeholder="Título do Evento"
-            onChangeText={(text) => setEventTitle(text)}
-            value={eventTitle}
-          />
-          <Button title="Salvar Evento" onPress={handleAddEvent} />
-          <Button title="Cancelar" onPress={() => setModalVisible(false)} />
-        </View>
-      </Modal>
-
-      <Text>Eventos para {format(selectedDate, 'dd/MM/yyyy')}:</Text>
-      <FlatList
-        data={events}
-        renderItem={({ item }) => (
-          <Text>{format(new Date(item.startDate), 'HH:mm')} - {item.title}</Text>
-        )}
-        keyExtractor={(item) => item.id}
-      />
-    </View>
-  );
+interface AppState {
+  selectedStartDate: Date | null;
+  selectedEndDate: Date | null;
 }
+
+export default class Calendars extends Component<{}, AppState> {
+  constructor(props: {}) {
+    super(props);
+    this.state = {
+      selectedStartDate: null,
+      selectedEndDate: null,
+    };
+    this.onDateChange = this.onDateChange.bind(this);
+  }
+
+  onDateChange(date: Date, type: string) {
+    if (type === 'END_DATE') {
+      this.setState({
+        selectedEndDate: date,
+      });
+    } else {
+      this.setState({
+        selectedStartDate: date,
+        selectedEndDate: null,
+      });
+    }
+  }
+
+  render() {
+    const { selectedStartDate, selectedEndDate } = this.state;
+    const minDate = new Date(); // Today
+    const maxDate = new Date(2017, 6, 3);
+    const startDate = selectedStartDate ? selectedStartDate.toString() : '';
+    const endDate = selectedEndDate ? selectedEndDate.toString() : '';
+
+    return (
+      <View style={styles.container}>
+        <CalendarPicker
+          startFromMonday={true}
+          allowRangeSelection={true}
+          minDate={minDate}
+          maxDate={maxDate}
+          todayBackgroundColor="#f2e6ff"
+          selectedDayColor={Theme.colors.greemOpacyd}
+          selectedDayTextColor="#FFFFFF"
+          onDateChange={this.onDateChange as unknown as DateChangedCallback} // Correção aqui
+        />
+
+        <View>
+          <Text>SELECTED START DATE:{startDate}</Text>
+          <Text>SELECTED END DATE:{endDate}</Text>
+        </View>
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#FFFFFF',
+    marginTop: 100,
+  },
+});
