@@ -27,6 +27,7 @@
               "allowedNames": ["ignoredFunctionName", "ignoredMethodName"]
             }
           ],
-        "files": ["*.ts", "*.mts", "*.cts", "*.tsx"]
+        "files": ["*.ts", "*.mts", "*.cts", "*.tsx"],
+        "react/props-types":["error",{"ignore":["navigation","navigation.navigate"]}]
     }
 }
