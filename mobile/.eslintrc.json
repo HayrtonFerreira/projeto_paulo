@@ -28,6 +28,7 @@
             }
           ],
         "files": ["*.ts", "*.mts", "*.cts", "*.tsx"],
-        "react/props-types":["error",{"ignore":["navigation","navigation.navigate"]}]
+        "react/prop-types":["error",{"ignore":["navigation","navigation.navigate"]}],
+         "whitespace/no-trailing-spaces": "error"
     }
 }

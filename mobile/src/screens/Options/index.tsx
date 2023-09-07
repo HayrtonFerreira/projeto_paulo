@@ -11,9 +11,13 @@ import { Teacher } from '../StarTeacher';
 
 
 
-
-
 export default function Options() {
+
+  const { colors } = Theme;
+
+  const { greemOpacyd } = colors;
+
+  Theme.colors.gray100
 
   const { navigate } = useNavigation()
 
