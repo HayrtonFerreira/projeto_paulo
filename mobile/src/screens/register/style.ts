@@ -1,101 +1,63 @@
-;
 import styled from "styled-components/native";
+import { Theme } from "../../../Thema";
 
-
-export const  Conteiner = styled.View`
-  flex:1;
-  justify-content:center;
+export const Conteiner = styled.View`
+  flex: 1;
+  justify-content: center;
   text-align: center;
-  background-color:#000;
+  background-color: ${Theme.colors.white100};
 `;
 
-export const  Title = styled.View`
-  margin-bottom:15px;
-
+export const Title = styled.View`
+  margin-bottom: 15px;
 `;
 
 export const Text = styled.Text`
   font-size: 24px;
-  color: #fff;
+  color: ${Theme.colors.greem};
   font-weight: bold;
-  margin-left:15px;
- 
+  margin-left: 15px;
+  color: ${Theme.colors.greem};
 `;
 export const TextButton = styled.Text`
   font-size: 20px;
-  color: #fff;
+  color: ${Theme.colors.white100};
   font-weight: bold;
   text-align: center;
-  justify-content:center;
+  justify-content: center;
 `;
-export const TextSocial = styled.Text`
-font-size: 16px;
-color: #fFF;
-font-weight: bold;
-text-align: center;
-justify-content:center;
-`;
+
 export const Label = styled.TextInput`
   padding: 10px;
   font-size: 16px;
-  border: 1px solid #ccc;
+  color: ${Theme.colors.greem};
+  border: 1px solid ${Theme.colors.greem};
   border-radius: 5px;
   margin: 10px;
-
 `;
-export const  ButtomRegister = styled.TouchableOpacity`
- width:90%;
- padding:10px;
- margin-left:10px; 
- justify-content:center;
- align-items:center;
- margin-top:45px;
- border-radius:10px;
- background-color:#8875FF;
+export const ButtomRegister = styled.TouchableOpacity`
+  width: 90%;
+  padding: 15px;
+  margin-left: 15px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 45px;
+  border-radius: 10px;
+  background-color: ${Theme.colors.greem};
 `;
-export const  ButtomIcons = styled.TouchableOpacity`
- width:90%;
- padding:15px;
- margin-left:10px; 
- flex-direction:row;
- justify-content:center;
- align-items:center;
- gap:15px;
- margin-top:15px;
- border-radius:10px;
- background-color:#000;
- border:1px solid  #8875FF;
- 
-`;
-export const HorizontalLine = styled.View`
-  width: 50%;
-  height: 2px;
-  background-color:#979797;
-  margin-top:20px
-`;
-export const TextHorizontal = styled.Text`
-  font-size: 16px;
-  color: #979797;
-  margin-top:20px
-  
-`;
-export const ViewHorizontal = styled.View`
-flex-direction:row;
-align-items:center;
-width: 90%;
-gap:3px;
-margin-top:15px;
-margin-left:10px;
-`;
-export const TextLink = styled.Text`
+export const TextErro = styled.Text`
   font-size: 12px;
-  color: #fff;
-  text-align:center;
-  margin-top:10px;
-  
+  color: red;
+  font-weight: bold;
+  margin-left: 20px;
 `;
-export const ViewHorizontalText =styled.View`
-  
-  margin-top:35px;
-  background-color:#000;
+export const ConteinerImage = styled.View`
+  width: 99%;
+  height: 20%;
+  align-items: center;
+  margin-bottom: 45px;
+`;
+export const IconApp = styled.Image`
+  width: 200px;
+  height: 200px;
 `;

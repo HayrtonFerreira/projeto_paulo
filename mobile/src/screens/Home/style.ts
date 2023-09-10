@@ -6,6 +6,7 @@ export const Conteiner = styled.View`
   justify-content: center;
   background-color: ${Theme.colors.white100};
 `;
+
 export const Conteinertop = styled.View`
   height: 20%;
   justify-content: center;

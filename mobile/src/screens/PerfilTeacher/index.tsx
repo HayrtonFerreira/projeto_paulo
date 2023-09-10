@@ -44,6 +44,10 @@ export function PerfilTeacher() {
             rating: rating,
         })
     }
+    function handleAgenda() {
+        navigation.navigate('Agenda')
+            
+    }
 
     return (
 
@@ -59,7 +63,9 @@ export function PerfilTeacher() {
                 <ConteinerName>
                     <NameTeacher>{name}</NameTeacher>
                 </ConteinerName>
-                <InputLesson>
+                <InputLesson 
+                onPress={()=>handleAgenda()}
+                >
                     <Fontisto name="date" size={24} color={Theme.colors.white100} />
                     <TextTeacher>Agende sua aula</TextTeacher>
                 </InputLesson>
