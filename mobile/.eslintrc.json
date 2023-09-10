@@ -19,8 +19,8 @@
     ],
     
     "rules": {
-        //permite escreve aquivos jsx
-        "react/jsx-filename-extension":[1,{"extensions":[".js",".jsx"]}],
+      
+        
         "@typescript-eslint/explicit-function-return-type": [
             "error",
             {
@@ -28,7 +28,7 @@
             }
           ],
         "files": ["*.ts", "*.mts", "*.cts", "*.tsx"],
-        "react/prop-types":["error",{"ignore":["navigation","navigation.navigate"]}],
+       
          "whitespace/no-trailing-spaces": "error"
     }
 }

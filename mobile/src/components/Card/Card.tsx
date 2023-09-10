@@ -1,14 +1,14 @@
 import { useState } from 'react';
-import {  Conteiner,
+import {  AvatarTeacher, Conteiner,
      ConteinerTask,
-     ConteinerhorizontalList,
+  
      TextCard,
      } from "./style";
 import { useNavigation } from '@react-navigation/native';
     
 interface PropsList{
     name:string;
-  
+    avatar:string;
 }
 
 export default function Card(props:PropsList){
@@ -20,8 +20,9 @@ export default function Card(props:PropsList){
     return(
         <Conteiner>
             <ConteinerTask >
+                <AvatarTeacher source={{uri:props.avatar}}/>
                  <TextCard >{props.name}</TextCard>
-                 <ConteinerhorizontalList/>
+                
             </ConteinerTask>
             
         </Conteiner>

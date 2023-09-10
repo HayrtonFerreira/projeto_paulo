@@ -1,29 +1,34 @@
 import { useState } from 'react';
-import {  Conteiner,
-     ConteinerTask,
-     TextCard,
-     } from "./style";
+import {
+    Conteiner,
+    ConteinerTask,
+    TextCard,
+} from "./style";
 import { useNavigation } from '@react-navigation/native';
+import { MaterialIcons } from '@expo/vector-icons';
 import React from 'react';
-    
-interface PropsList{
-    name:string;
-  
+import { Theme } from './../../../Thema';
+
+interface PropsList {
+    name: string;
+
 }
 
-export default function Card3(props:PropsList){
+export default function Card3(props: PropsList) {
     const navigation = useNavigation()
     const [isChecked, setChecked] = useState(false);
-  
 
-     
-    return(
+
+
+    return (
         <Conteiner>
             <ConteinerTask >
-                 <TextCard >{props.name}</TextCard>
-                
+                <TextCard >{props.name}</TextCard>
+                <MaterialIcons name="monetization-on" size={30} color={Theme.colors.yellow} />
+
+
             </ConteinerTask>
-            
+
         </Conteiner>
     )
 }

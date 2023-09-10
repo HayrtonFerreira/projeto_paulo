@@ -1,41 +1,32 @@
-
 import styled from "styled-components/native";
 import { Theme } from "../../../Thema";
 
-
-
-export const  Conteiner =  styled.View`
-  flex:1;
-  justify-content:center;
-  align-items:center;
-  height:80px;
-  width:286px;
-  background-color:${Theme.colors.white100};
-  border-radius:20px;
-  gap:10px;
-  margin-left:45px;
-  margin-top:45px;
-`;
-
-
-export const  ConteinerTask =  styled.TouchableOpacity`
-  height:100%;
-  width:99%;
+export const Conteiner = styled.View`
+  
+  justify-content: center;
   align-items: center;
-  justify-content:center;
-  margin-top:50px;
-  gap:10px;
-
+  height: 20%;
+  width: 90%;
+  margin-top: -10px;
+  margin-bottom: 20px;
+  background-color: ${Theme.colors.white100};
+  border-radius: 20px;
+  border: 1px ${Theme.colors.greem};
+  margin-left: 18px;
+ 
 `;
 
+export const ConteinerTask = styled.TouchableOpacity`
+  flex-direction: row;
+  height: 100%;
+  width: 99%;
+  align-items: center;
+  justify-content: center;
+`;
 
-
-export const  TextCard =  styled.Text`
- color:#000;
- font-size:16;
-text-align:center;
-width:99%;
-height:100%;
- 
- 
+export const TextCard = styled.Text`
+  color: ${Theme.colors.greem};
+  font-size: 16px;
+  text-align: center;
+  width: 80%;
 `;

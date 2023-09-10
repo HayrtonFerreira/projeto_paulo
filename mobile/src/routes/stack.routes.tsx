@@ -8,7 +8,9 @@ import { PerfilTeacher } from '../screens/PerfilTeacher';
 import StarTeacher from '../screens/StarTeacher';
 import { Theme } from '../../Thema';
 import { StarRating } from '../screens/StarRating';
-import { Schedule } from '../screens/Schedule';
+import Schedule from '../screens/Schedule';
+import Home from '../screens/Home';
+
 
 
 
@@ -20,6 +22,14 @@ const{Navigator,Screen} =  createStackNavigator();
 export default function Stack() {
     return(
         <Navigator>
+               <Screen
+          name='Home'
+          component={Home}
+          options={{
+            
+            headerShown:false
+          }}
+          /> 
            <Screen
           name='Schedule'
           component={Schedule}
@@ -50,6 +60,7 @@ export default function Stack() {
           }}
         
           />
+       
         
           <Screen
           name='PerfilTeacher'

@@ -33,7 +33,7 @@ import { CreateCategory } from './../screens/CreateCategory/index';
                 name:string,
                 rating:number,
             };
-             Schedule:undefined
+            Schedule:undefined
 
         }
     }

@@ -10,7 +10,8 @@ import Options from '../screens/Options';
 import {  PerfilTeacher } from '../screens/PerfilTeacher';
 import StarTeacher from '../screens/StarTeacher';
 import { StarRating } from '../screens/StarRating';
-import { Schedule } from '../screens/Schedule';
+import Schedule from '../screens/Schedule';
+
 
 
 

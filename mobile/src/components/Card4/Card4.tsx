@@ -12,8 +12,7 @@ interface PropsCard2 {
     name: string;
 
 }
-
-export default function Card2(props: PropsCard2) {
+export default function Card4(props: PropsCard2) {
 
 
     return (
@@ -21,7 +20,7 @@ export default function Card2(props: PropsCard2) {
 
             <ConteinerView>
                 <ConteinerTask >
-                    <FontAwesome name={'calendar-check-o'} size={24} color={Theme.colors.greem} />
+                    <FontAwesome name={"calendar-plus-o"} size={24} color={Theme.colors.greem} />
                 </ConteinerTask>
 
                 <TextIcon>{props.name}</TextIcon>
