@@ -24,7 +24,16 @@ const { Navigator, Screen } = createStackNavigator();
 export default function Stack() {
   return (
     <Navigator>
-         <Screen
+      <Screen
+        name='Login'
+        component={Login}
+        options={{
+        
+          headerShown: false
+        }}
+
+      />
+      <Screen
         name='Register'
         component={Register}
         options={{
@@ -33,15 +42,7 @@ export default function Stack() {
         }}
 
       />
-       <Screen
-        name='Login'
-        component={Login}
-        options={{
 
-          headerShown: false
-        }}
-
-      />
       <Screen
         name='Home'
         component={Home}
@@ -77,7 +78,7 @@ export default function Stack() {
           headerShown: false
         }}
       />
-     
+
 
 
       <Screen

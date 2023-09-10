@@ -8,16 +8,16 @@ import Tab from "./tab.routes";
 
 export default function Routes() {
 
-  const [user, setUser]= useState(false)
+  const [user, setUser] = useState(false)
   return (
-    
-      <NavigationContainer>
-        
-        {user ? <Tab/> :<Stack /> }
 
-        
-      </NavigationContainer>
-    
+    <NavigationContainer>
+
+      {user ? <Tab /> : <Stack />}
+
+
+    </NavigationContainer>
+
   );
 }
 

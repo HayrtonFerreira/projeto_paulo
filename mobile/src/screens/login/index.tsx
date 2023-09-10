@@ -54,7 +54,7 @@ export default function Login() {
       >
         {({ handleChange, handleBlur, handleSubmit, values, errors }) => (
           <>
-            <TextLabel>Usename</TextLabel>
+            <TextLabel>Usuário</TextLabel>
             <Label
               onChangeText={handleChange('user')}
               onBlur={handleBlur('user')}
@@ -64,7 +64,7 @@ export default function Login() {
 
             />
             {errors.user ? (<TextErro>user Invalid</TextErro>) : (<></>)}
-            <TextLabel>Password</TextLabel>
+            <TextLabel>Senha</TextLabel>
             <Label
               onChangeText={handleChange('password')}
               onBlur={handleBlur('password')}
@@ -77,14 +77,14 @@ export default function Login() {
             <ButtomLogin
               onPress={() => handleSubmit()}
             >
-              <TextButton>Login</TextButton>
+              <TextButton>Entrar</TextButton>
             </ButtomLogin>
 
 
           </>
         )}
       </Formik>
-      <ButtomIcons>
+      <ButtomIcons onPress={()=>navigation.navigate('Register')}>
         <TextLink>Ainda não sou cadastrado!</TextLink>
       </ButtomIcons>
     </ConteinerLogin>

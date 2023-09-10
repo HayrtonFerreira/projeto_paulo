@@ -90,7 +90,7 @@ export default function Register() {
                         {errors.passwordConfim ? (<TextErro>{errors.passwordConfim}</TextErro>) : (<></>)}
                         <ButtomRegister
                             onPress={() => handleSubmit()}>
-                            <TextButton>Cadastra</TextButton>
+                            <TextButton>Cadastrar</TextButton>
                         </ButtomRegister>
                     </>
                 )}
