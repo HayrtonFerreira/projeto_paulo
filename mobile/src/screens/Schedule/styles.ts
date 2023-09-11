@@ -5,6 +5,7 @@ export const Conteiner = styled.View`
   flex: 1;
   justify-content: center;
   align-items: center;
+  background-color: ${Theme.colors.white100};
 `;
 
 export const ProtuctConteiner = styled.View`

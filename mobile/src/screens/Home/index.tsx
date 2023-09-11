@@ -13,7 +13,7 @@ import {
 } from "./style";
 
 ;
-
+import { Alert } from "native-base";
 import Card2 from "../../components/Card2/Card2";
 import Card from "../../components/Card/Card";
 import Card3 from './../../components/Card3/Card';
@@ -63,7 +63,7 @@ export default function Home() {
 
             </ConteinerList2>
 
-            <Card3 name={"Nova maneira de educação finaceira"} />
+            <Card3 name={"Informaçao de pagamentos"} />
         </Conteiner>
     )
 }

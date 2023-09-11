@@ -22,11 +22,15 @@ export const ConteinerTask = styled.TouchableOpacity`
   width: 99%;
   align-items: center;
   justify-content: center;
+  margin-left: -18px;
 `;
 
 export const TextCard = styled.Text`
   color: ${Theme.colors.greem};
-  font-size: 16px;
+  font-weight:bold;
+  font-size: 20px;
   text-align: center;
   width: 80%;
+  margin-left: -18px;
+
 `;

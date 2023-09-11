@@ -5,7 +5,7 @@ import {
     TextCard,
 } from "./style";
 import { useNavigation } from '@react-navigation/native';
-import { MaterialIcons } from '@expo/vector-icons';
+import { Fontisto } from '@expo/vector-icons';
 import React from 'react';
 import { Theme } from './../../../Thema';
 
@@ -24,9 +24,7 @@ export default function Card3(props: PropsList) {
         <Conteiner>
             <ConteinerTask >
                 <TextCard >{props.name}</TextCard>
-                <MaterialIcons name="monetization-on" size={30} color={Theme.colors.yellow} />
-
-
+                <Fontisto name="credit-card" size={24} color={Theme.colors.greem} />
             </ConteinerTask>
 
         </Conteiner>

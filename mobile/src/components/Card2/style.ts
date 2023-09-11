@@ -3,7 +3,7 @@ import { Theme } from "../../../Thema";
 
 export const Conteiner = styled.View`
   flex-direction: column;
-  width: 180px;
+  width: 170px;
   height: 138px;
   margin-top: 25px;
   text-align: center;
@@ -43,7 +43,8 @@ export const ViewButtomIcon = styled.View`
 `;
 
 export const TextIcon = styled.Text`
-  font-size: 16px;
+  font-size: 20px;
+  font-weight:bold;
   text-align: center;
   color: ${Theme.colors.greem};
 `;

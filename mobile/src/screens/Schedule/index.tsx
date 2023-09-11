@@ -35,7 +35,7 @@ export default function Schedule() {
             setTimeSelect(id)
             setResevetion(item)
         
-            Alert.alert("Horário Resevado com Sucesso")
+          
             navigate('Home')
         }
         console.log('====================================');
