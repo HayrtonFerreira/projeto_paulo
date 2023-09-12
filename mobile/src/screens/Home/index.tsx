@@ -13,12 +13,13 @@ import {
 } from "./style";
 
 ;
-import { Alert } from "native-base";
+
 import Card2 from "../../components/Card2/Card2";
 import Card from "../../components/Card/Card";
 import Card3 from './../../components/Card3/Card';
 import Card4 from "../../components/Card4/Card4";
 import { useNavigation } from "@react-navigation/native";
+import { Alert } from "react-native";
 
 
 
@@ -34,8 +35,10 @@ export default function Home() {
         navigate('Options', {
             isChecked: true,
             modal: true,
-
-        })
+            })
+        
+            
+        
     }
     return (
         <Conteiner>
@@ -63,7 +66,7 @@ export default function Home() {
 
             </ConteinerList2>
 
-            <Card3 name={"Informaçao de pagamentos"} />
+            <Card3 name={"Informaçao de pagamento"} />
         </Conteiner>
     )
 }
