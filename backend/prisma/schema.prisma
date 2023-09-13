@@ -1,11 +1,52 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
+}
+
+model agendaprofessor {
+  id          Int       @id @default(autoincrement())
+  professorid Int
+  horainicio  DateTime  @db.Time(6)
+  horafim     DateTime  @db.Time(6)
+  professor   professor @relation(fields: [professorid], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model aluno {
+  id             Int            @id @default(autoincrement())
+  nome           String         @db.VarChar(255)
+  email          String         @unique @db.VarChar(255)
+  telefone       String?        @db.VarChar(20)
+  datanascimento DateTime?      @db.Date
+  pedidodeaula   pedidodeaula[]
+}
+
+model materia {
+  id           Int            @id @default(autoincrement())
+  nome         String         @db.VarChar(255)
+  pedidodeaula pedidodeaula[]
+}
+
+model pedidodeaula {
+  id        Int      @id @default(autoincrement())
+  alunoid   Int
+  materiaid Int
+  localaula String   @db.VarChar(250)
+  dataaula  DateTime @db.Timestamp(6)
+  horaaula  DateTime @db.Time(6)
+  aluno     aluno    @relation(fields: [alunoid], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  materia   materia  @relation(fields: [materiaid], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model professor {
+  id              Int               @id @default(autoincrement())
+  nome            String            @db.VarChar(255)
+  email           String            @unique @db.VarChar(255)
+  formacao        String?           @db.VarChar(50)
+  telefone        String?           @db.VarChar(20)
+  datanascimento  DateTime?         @db.Date
+  agendaprofessor agendaprofessor[]
 }
