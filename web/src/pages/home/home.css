@@ -6,7 +6,7 @@ body{
 }
 .search-box{
     position: absolute;
-    top: 10%;
+    top: 11%;
     left: 50%;
     transform: translate(-50%, -50%);
     background: #5cc6a0;
